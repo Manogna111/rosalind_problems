@@ -1,0 +1,34 @@
+Problem
+An RNA string is a string formed from the alphabet containing 'A', 'C', 'G', and 'U'.
+
+Given a DNA string t
+ corresponding to a coding strand, its transcribed RNA string u
+ is formed by replacing all occurrences of 'T' in t
+ with 'U' in u
+.
+
+Given: A DNA string t
+ having length at most 1000 nt.
+
+Return: The transcribed RNA string of t.
+
+#practice
+s=input()
+for i in s:
+        if i =="A":
+            m=s.replace(i , "T")
+        elif i == "T":
+            m=s.replace(i, "A")
+        elif i == "C":
+            m=s.replace(i, "G")
+        elif i == "G":
+            m=s.replace(i, "C")
+        
+print(m)
+
+
+s=input()
+mapping_table=str.maketrans({"A":"T","T":"A","C":"G","G":"C"})
+output=s.translate(mapping_table)
+txt = output[::-1]
+print(txt)
