@@ -1,0 +1,58 @@
+Problem
+The GC-content of a DNA string is given by the percentage of symbols in the string that are 'C' or 'G'. For example, the GC-content of "AGCTATAG" is 37.5%. Note that the reverse complement of any DNA string has the same GC-content.
+
+DNA strings must be labeled when they are consolidated into a database. A commonly used method of string labeling is called FASTA format. In this format, the string is introduced by a line that begins with '>', followed by some labeling information. Subsequent lines contain the string itself; the first line to begin with '>' indicates the label of the next string.
+
+In Rosalind's implementation, a string in FASTA format will be labeled by the ID "Rosalind_xxxx", where "xxxx" denotes a four-digit code between 0000 and 9999.
+
+Given: At most 10 DNA strings in FASTA format (of length at most 1 kbp each).
+
+Return: The ID of the string having the highest GC-content, followed by the GC-content of that string. Rosalind allows for a default error of 0.001 in all decimal answers unless otherwise stated; please see the note on absolute error below.
+
+#Read the text file as a value
+# Read the FASTA file
+fasta_file = "rosalind_gc.txt"
+
+# Initialize a dictionary to store the sequences
+sequences = {}
+
+# Open and read the file
+with open(fasta_file, 'r') as file:
+    identifier = None
+    sequence = []
+    
+    for line in file:
+        line = line.strip()
+        if line.startswith('>'):
+            if identifier:
+                sequences[identifier] = ''.join(sequence)
+            identifier = line[1:]
+            sequence = []
+        else:
+            sequence.append(line)
+    
+    # Don't forget to add the last sequence
+    if identifier:
+        sequences[identifier] = ''.join(sequence)
+
+# Print the sequences in the desired format
+import numpy as np
+rows, cols = 2, 10
+results = np.empty((rows,cols),dtype=object)
+results[:]=0
+c=0
+for identifier, sequence in sequences.items():
+    letter_1 = "G"
+    g_count = sequence.count(letter_1)
+    letter_2 = "C"
+    c_count = sequence.count(letter_2)
+    all_count = len(sequence)
+
+    results[0,c] = identifier
+    results [1,c] = (((g_count + c_count)/all_count)*100)
+    c=c+1
+numbers = results [1,:]
+max_id=np.argmax(numbers)
+max_value=numbers[max_id]
+max_id_name=results[0,max_id]
+print ( max_id_name,'\n',max_value )
