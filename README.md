@@ -4,19 +4,41 @@ This repository contains my solutions to the problems on [Rosalind](https://rosa
 
 ---
 
-## 📁 Problem List
-
-
+> Each script is named using the problem ID and name for easy reference. Inside each script, you'll find:
+> - A problem description
+> - An explanation of the approach
+> - A working solution in Python
 
 ---
 
-## 🧪 How to Run
+## 🔬 Topics Covered
 
-Run an individual script:
+- DNA/RNA transcription and translation
+- GC content & motif finding
+- Mendelian inheritance
+- Probability & combinatorics
+- Recurrence relations
+- Graph algorithms (e.g., overlap graphs, genome assembly)
+- Dynamic programming
+- Alignment and scoring matrices
 
-```bash
-python <filename>.py
-```
+---
+
+## 🧪 Language & Tools
+
+- Language: **Python 3**
+- Libraries: Only standard libraries unless otherwise noted
+- Optional tools:
+  - `Biopython` (only for certain problems where allowed)
+
+---
+
+## ✅ Progress
+
+- 🧩 Total Problems Solved: 11
+- 🧬 Fundamental Bioinformatics: ✅
+- 📈 Intermediate Algorithms: ✅
+- 🧠 Advanced Challenges: 🚧
 
 ---
 
@@ -34,6 +56,16 @@ Rosalind problems help reinforce concepts in:
 
 - Language: Python 3
 - Dependencies: None (standard libraries only unless specified)
+
+---
+
+## 🧪 How to Run
+
+Run an individual script:
+
+```bash
+python <filename>.py
+```
 
 ---
 
